@@ -30,7 +30,7 @@ import de.greenrobot.event.ThreadMode;
 public class DailPresenter implements DailContract.Presenter{
 				public final static int TYPE_CALL_OUT = 0;// 拨号
 				public final static int TYPE_TAIKING = 1; // 通话中
-				public final static int TYPE_CALL_IN = 2; // 来电
+				public final static int TYPE_CALL_IN = 2; // incoming call
 				public final static int TYPE_HANG_UP = 3; // 挂断
 
 				private DailContract.View mView;
@@ -228,7 +228,7 @@ public class DailPresenter implements DailContract.Presenter{
 																}
 																case CALL_IN_NEXT:{
 																				isHandle = true;
-																				ShowLogUtil.show("来电");
+																				ShowLogUtil.show("incoming call");
 																				mCurrentType = TYPE_CALL_IN;
 																				break;
 																}

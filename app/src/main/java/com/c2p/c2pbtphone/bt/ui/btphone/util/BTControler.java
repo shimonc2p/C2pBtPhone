@@ -22,7 +22,7 @@ import java.util.List;
 
 
 /**
-	* 对蓝牙电话操作的相关api
+	* 对bluetooth phone操作的相关api
 	* Created by Administrator on 2016/7/13.
 	*/
 public class BTControler{
@@ -96,7 +96,7 @@ public class BTControler{
 				/**
 					* 设置正在通话的信息
 					*
-					* @param name   姓名
+					* @param name   name
 					* @param number 电话
 					*/
 				public void setTalkingInfo(String name, String number, String type){

@@ -3,13 +3,13 @@ package com.lingfei.android.business.cmd.send;
 import com.lingfei.android.business.serial.SerioUtils;
 
 /**
-	* 蓝牙电话相关指令
+	* bluetooth phone相关指令
 	* 蓝牙来电去电挂断
 	* Created by heyu on 2016/9/14.
 	*/
 public class BTPhoneCmd extends BaseCmd{
 
-				public static byte[] bt_phone_cmd; // 蓝牙电话
+				public static byte[] bt_phone_cmd; // bluetooth phone
 				public static int IN_COMING = 0;
 				public static int CALL_OUT = 1;
 				public static int HANG_UP = 2;

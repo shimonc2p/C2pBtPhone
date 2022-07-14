@@ -8,7 +8,7 @@ import com.lingfei.android.uilib.util.SysSharePres;
 /**
 	* Created by Administrator on 2016/10/12.
 	*/
-public class CarPhonePushIntentService extends BaseCarPhoneIntentService{//原车蓝牙电话推送状态
+public class CarPhonePushIntentService extends BaseCarPhoneIntentService{//原车bluetooth phone推送状态
 
 				//================================================================
 				//===========================sharePreference======================================

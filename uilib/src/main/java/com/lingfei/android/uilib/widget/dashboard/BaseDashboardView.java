@@ -20,25 +20,25 @@ import com.lingfei.android.uilib.R;
 import com.lingfei.android.uilib.util.BitmapUtil;
 
 /**
-	* 仪表盘控件父类，需要在子类里实现其抽象方法
-	* 设置属性说明：
-	* （1）bmpBackground 背景图
-	* （2）bmpSpeedPointer 指针
-	* （3）mStartAngle 开始角度
-	* （4）mMaxAngle 最大角度（需要旋转的最大角度范围）
-	* （5）mMinValue 最小值（表盘上显示的最小值）
-	* （6）mMaxValue 最大值（表盘上显示的最大值）
-	* （7）mBigSliceCount 刻度数（表盘上显示多少刻度）
-	* （8）mPointerInitAngle 指针初始指向的角度（用于指针旋转校验）
-	* （9）mDailScaleRadius 刻度半径（刻度在表盘上显示的位置）
-	* （10）mFontRadius 刻度数字的半径（刻度数字在表盘上显示的位置）
-	* <p/>
-	* 设置画笔：
-	* （1）绘制刻度字体正常显示的画笔
-	* （2）绘制刻度字体变大显示的画笔
-	* （3）绘制指针扫描区域的画笔
-	* （4）指针扫描区域的矩形
-	*/
+ * Dashboard control parent class, its abstract method needs to be implemented in the subclass
+ * Setting property description:
+ * (1) bmpBackground background image
+ * (2) bmpSpeedPointer pointer
+ * (3) mStartAngle start angle
+ * (4) mMaxAngle maximum angle (the maximum angle range that needs to be rotated)
+ * (5) mMinValue minimum value (the minimum value displayed on the dial)
+ * (6) mMaxValue maximum value (the maximum value displayed on the dial)
+ * (7) mBigSliceCount scale number (how many scales are displayed on the dial)
+ * (8) mPointerInitAngle The angle at which the pointer initially points (for pointer rotation verification)
+ * (9) mDailScaleRadius scale radius (the position of the scale displayed on the dial)
+ * (10) mFontRadius The radius of the scale numbers (the position of the scale numbers displayed on the dial)
+ * <p/>
+ * Setting brushes:
+ * (1) Draw the brush that the scale font is displayed normally
+ * (2) Draw a brush that displays a larger scale font
+ * (3) Brush for drawing pointer scan area
+ * (4) The rectangle of the pointer scanning area
+ */
 public abstract class BaseDashboardView extends SurfaceView{
 				private Bitmap bmpSpeedPointer; // 仪表指针图片
 				private Bitmap bmpBackground; // 仪表背景图
@@ -291,25 +291,25 @@ public abstract class BaseDashboardView extends SurfaceView{
 				}
 
 				/**
-					* 刻度数 这里实现画数字 使用子类定制的 大和小画笔 父类尽量不要修改子类画笔
+					* The number of scales is here to achieve drawing numbers. Use the large and small brushes customized by the subclass. The parent class should try not to modify the subclass brushes.
 					*
 					* @param canvas
 					*/
 				private void drawMeasureNumber(Canvas canvas){
 								if(canvas != null && mPaintNormalFont != null && mPaintChangeFont != null){
 												for(int i = 0; i <= mBigSliceCount; i++){
-																// 获取刻度位置
+																// get tick position
 																float angle = i * mDialScaleAngle + mStartAngle;
 																float[] point1 = getCoordinatePoint(mDailScaleRadius, angle);
-																// 得到指针当前所在的位置
+																// get the current position of the pointer
 																float[] mCurrentPointer = getCoordinatePoint(mDailScaleRadius, mCurrentAngle);
 
-																// 绘制数字的画笔
+																// paintbrush for numbers
 																Paint paintFont = mPaintNormalFont;
 
-																// 计算指针当前位置与刻度的距离
+																// Calculate the distance between the pointer's current position and the scale
 																int dis = (int) calculationTwoPointDistance(mCurrentPointer, point1);
-																if(dis < 30){ // 如果指针与刻度的距离小于设定值，则显示大字
+																if(dis < 30){ // If the distance between the pointer and the scale is less than the set value, it will display large characters
 																				paintFont = mPaintChangeFont;
 																}
 
@@ -450,7 +450,7 @@ public abstract class BaseDashboardView extends SurfaceView{
 				}
 
 				/**
-					* 计算两点间距离
+					* Calculate the distance between two points
 					*
 					* @param point1
 					* @param point2

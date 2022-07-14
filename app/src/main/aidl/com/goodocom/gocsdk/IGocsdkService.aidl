@@ -57,7 +57,7 @@ interface IGocsdkService {
 	  5 = 已接号码
 	*/
 	void GOCSDK_callLogstartUpdate(int type);
-	/*播放/暂停音乐*/
+	/*播放/Pause music*/
 	void GOCSDK_musicPlayOrPause();
 	/*停止音乐*/
 	void GOCSDK_musicStop();
@@ -98,9 +98,9 @@ interface IGocsdkService {
 	void GOCSDK_InquiryA2dpStatus();
 	/*查询版本日期*/
 	void GOCSDK_InquiryVersion();
-	/*启动('1')/禁止('0')蓝牙音乐*/
+	/*启动('1')/禁止('0')bluetooth music*/
 	void GOCSDK_MuteOrUnmuteA2dp(char type);
-	/*恢复('1')/减半('0')蓝牙音乐*/
+	/*恢复('1')/减半('0')bluetooth music*/
 	void GOCSDK_UnmuteOrHalfA2dp(char type);
 	/*通过OPP发送文件给手机*/
 	void GOCSDK_OppSendFile(String path);

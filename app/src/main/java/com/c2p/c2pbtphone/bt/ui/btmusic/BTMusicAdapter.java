@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
-	* 蓝牙音乐
+	* bluetooth music
 	* Created by heyu on 2017/7/22.
 	*/
 public class BTMusicAdapter extends BaseAdapter{

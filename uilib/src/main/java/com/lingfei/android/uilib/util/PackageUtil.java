@@ -150,7 +150,7 @@ public class PackageUtil{
 																item.setIntent(launchIntent);
 
 																// 过滤掉部分应用
-																//                蓝牙电话 activityName---com.goodocom.rk.MainActivity pkgName---com.goodocom.rk
+																//                bluetooth phone activityName---com.goodocom.rk.MainActivity pkgName---com.goodocom.rk
 																//                视频播放器 activityName---android.rk.RockVideoPlayer.VideoPlayActivity pkgName---android.rk.RockVideoPlayer
 																//                音乐 activityName---com.android.music.MusicBrowserActivity pkgName---com.android.music
 																if(!("com.goodocom.rk.MainActivity".equals(activityName) ||

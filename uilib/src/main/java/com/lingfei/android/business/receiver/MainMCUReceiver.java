@@ -57,7 +57,7 @@ public class MainMCUReceiver extends BroadcastReceiver{
 																else if(DoorUtil.isDoorInfo(datas)){ // 车门信息
 																				intentService = new Intent(context, WarningIntentService.class);
 																}
-/*																else if(CarPhoneUtil.isWarningInfo(datas, CarPhoneUtil.SEND_FROM_MCU)){ // 来电、去电
+/*																else if(CarPhoneUtil.isWarningInfo(datas, CarPhoneUtil.SEND_FROM_MCU)){ // incoming call、去电
 //																				intentService = new Intent(context, CarPhoneWarningIntentService.class); // 弹出警告框
 																				intentService = new Intent(context, CarPhonePushIntentService.class); // 不弹警告框
 																}*/

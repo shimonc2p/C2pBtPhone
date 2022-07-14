@@ -14,7 +14,7 @@ public class BTPhonePeople implements Serializable{
 						public static final String Answered = "BTPhonePeople.Answered";//已接
 						public static final String Called = "BTPhonePeople.Called";//已拨
 						public static final String Book = "BTPhonePeople.Book";//电话本
-						public static final String Callin = "BTPhonePeople.Callin";//来电
+						public static final String Callin = "BTPhonePeople.Callin";//incoming call
 						public static final String CALL_OUT = "BTPhonePeople.CALL_OUT";//去电
 						public static final String TALKING = "BTPhonePeople.TALKING";//去电
 			}
@@ -29,7 +29,6 @@ public class BTPhonePeople implements Serializable{
 
 			private String peopleName;
 			private String phoneNumber;
-				private String pinyin;
 
 			public BTPhonePeople(){
 
@@ -58,12 +57,4 @@ public class BTPhonePeople implements Serializable{
 			public void setPhoneNumber(String phoneNumber){
 						this.phoneNumber = phoneNumber;
 			}
-
-				public String getPinyin(){
-								return pinyin;
-				}
-
-				public void setPinyin(String pinyin){
-								this.pinyin = pinyin;
-				}
 }

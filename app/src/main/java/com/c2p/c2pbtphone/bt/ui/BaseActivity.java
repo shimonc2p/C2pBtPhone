@@ -23,7 +23,7 @@ import com.lingfei.android.uilib.AppManager;
 
 
 /**
-	* Activity的父类，继承该类可监听到Mcu发来的信息
+	* The parent class of Activity, inheriting this class can monitor the information sent by MCU
 	*/
 public abstract class BaseActivity extends AppCompatActivity {
 

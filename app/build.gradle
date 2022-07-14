@@ -49,15 +49,8 @@ dependencies {
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.35.1'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.35.1'
 
-
-//    implementation 'com.android.support:multidex:1.0.3'
-
-//    implementation 'de.greenrobot:eventbus:3.0.0'
-
-//    implementation files('libs/butterknife-7.0.1.jar')
     implementation files('libs/eventbus-3.0.0-beta1.jar')
     implementation files('libs/nineoldandroids-2.4.0.jar')
-    implementation files('libs/pinyin4j-2.5.0.jar')
 
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'

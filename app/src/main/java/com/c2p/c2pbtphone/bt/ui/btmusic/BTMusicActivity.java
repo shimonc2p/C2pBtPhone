@@ -36,7 +36,7 @@ import de.greenrobot.event.ThreadMode;
 
 /**
 	* BTMusicActivity
-	* 蓝牙音乐
+	* bluetooth music
 	*
 	* @author heyu
 	* @date 2017/7/22.

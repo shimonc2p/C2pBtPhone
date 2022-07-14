@@ -202,16 +202,7 @@ public class BTPhoneService extends Service{
 					*/
 				public void onSaveBTPhonePeople(BTPhonePeople btPeople){
 								if(btPeople != null && StringUtil.isNotEmpty(btPeople.getPhoneNumber())){
-												String name = btPeople.getPeopleName();
-												if(StringUtil.isNotEmpty(name)){
-																// 设置拼音
-																btPeople.setPinyin(PinYinUtils.getPinyin(name));
-												}
-												else{
-																btPeople.setPinyin("z");
-												}
-
-												// 保存联系人
+												// save contacts
 												phoneBookMap.put(btPeople.getPhoneNumber(), btPeople);
 												contactMap.put(btPeople.getPhoneNumber(), btPeople.getPeopleName());
 								}
@@ -241,7 +232,7 @@ public class BTPhoneService extends Service{
 				}
 
 				/**
-					* 启动蓝牙电话界面
+					* 启动bluetooth phone界面
 					*/
 				public void startBTPhoneActivty(){
 								try{
@@ -289,24 +280,24 @@ public class BTPhoneService extends Service{
 								if(null != event){
 												switch(event.getStatu()){
 																case CONNECTED:{
-																				ShowLogUtil.show("蓝牙连接");
-																				setToast("蓝牙设备连接");
+																				ShowLogUtil.show("Bluetooth connection");
+																				setToast("Bluetooth device connection");
 																				initServcieData(true);
 																				break;
 																}
 																case DISCONNECTED:{
-																				ShowLogUtil.show(" 蓝牙断开");
+																				ShowLogUtil.show("bluetooth disconnected");
 																				initServcieData(false);
 																				BTControler.getInstance().setHfpStatus(GocsdkCallback.HfpStatus_offline);
 																				break;
 																}
 																case ON_LINE:{ // 多次触发
-																				ShowLogUtil.show("BT HFP 连接");
+																				ShowLogUtil.show("BT HFP connection");
 																				BTControler.getInstance().setBTHfpConnected(true);
 																				break;
 																}
 																case OFF_LINE:{ // 多次触发
-																				ShowLogUtil.show("BT HFP 断开");
+																				ShowLogUtil.show("BT HFP disconnected");
 																				BTControler.getInstance().setBTHfpConnected(false);
 																				break;
 																}
@@ -351,7 +342,7 @@ public class BTPhoneService extends Service{
 				}
 
 				/**
-					* 处理蓝牙模块联系人相关事件
+					* Handling events related to Bluetooth module contacts
 					*
 					* @param event
 					*/
@@ -366,43 +357,43 @@ public class BTPhoneService extends Service{
 																}
 																case CALL_OUT:{
 																				requestAudioFocus();
-																				// 告诉mcu要拨打电话
+																				// tell the mcu to make a call
 																				BTPhoneCmd.sendBTPhoneCmd(BTPhoneCmd.CALL_OUT);
 																				BTPhonePeople phonePeople = event.getPhonePeople();
 																				if(null != phonePeople){
 																								String number = phonePeople.getPhoneNumber();
 																								String name = getPhoneNameByNumber(number);
-																								// 进行拨打电话
+																								// make a call
 																								sendBtPhoneBroadcast(GocsdkCallback.BT_CALL_OUT, name, number);
 																								BTControler.getInstance().setTalkingInfo(name, number, BTPhonePeople.Type.CALL_OUT);
 																								EventPostUtils.Post(new BTContactEvent(BTStatu.CALL_OUT_NEXT, BTControler.getInstance().getPeopleTalking()));
 																								startBTPhoneActivty();
 
-																								// 正在通话中,解决拨号时没有拨号铃声的问题
+																								// During a call, solve the problem that there is no dial tone when dialing
 																								sendBtPhoneBroadcast(GocsdkCallback.BT_TALKING, "", "");
 																				}
 																				break;
 																}
 																case PHONE_BOOK_DONE:{
 																				List<BTPhonePeople> phonePeoples = new ArrayList<>(phoneBookMap.values());
-																				// 对集合排序
+																				// Sort the collection
 																				Collections.sort(phonePeoples, new Comparator<BTPhonePeople>(){
 																								@Override
 																								public int compare(BTPhonePeople lhs, BTPhonePeople rhs){
-																												// 根据拼音进行排序
-																												return lhs.getPinyin().compareTo(rhs.getPinyin());
+																												// Sort by name
+																												return lhs.getPeopleName().compareTo(rhs.getPeopleName());
 																								}
 																				});
 
 																				BTControler.getInstance().setPhonePeoples(phonePeoples);
 																				EventPostUtils.Post(new BTSearchContactDoneEvent(phonePeoples));
 																				isPhoneBookDone = true;
-																				startResponseContacts(); // 将联系人同步给同行者
+																				startResponseContacts(); // Sync contacts to peers
 																				break;
 																}
 																case CALL_IN:{
 																				requestAudioFocus();
-																				ShowLogUtil.show("来电");
+																				ShowLogUtil.show("incoming call");
 																				BTPhonePeople phonePeople = event.getPhonePeople();
 																				onHandleCallIn(phonePeople);
 																				break;
@@ -451,7 +442,7 @@ public class BTPhoneService extends Service{
 				@Subscribe(threadMode = ThreadMode.BackgroundThread)
 				public void onEventBTMusicInfo(BTMusicEvent event){
 								if(null != event){
-												ShowLogUtil.show(" 蓝牙音乐 " + event.getStatu().name());
+												ShowLogUtil.show(" bluetooth music " + event.getStatu().name());
 												switch(event.getStatu()){
 																case MUSIC_INFO:{
 																				BTMusic music = event.getMusic();
@@ -461,7 +452,7 @@ public class BTPhoneService extends Service{
 																				break;
 																}
 																case MUSIC_PLAY:{
-																				// 暂停同听
+																				// pause listening
 																				SwitchUtil.doStartLingFeiCarService(Constant.Voice.PAUSE_TXT_MUSIC, null);
 																				SystemProperties.set("net.btmusice_status", "true");
 																				break;
@@ -498,9 +489,9 @@ public class BTPhoneService extends Service{
 												if(StringUtil.isNotEmpty(command)){
 																switch(command){
 																				case Constant.CMD_PAUSE_BTMUSIC:
-																								// 暂停音乐
+																								// Pause music
 																								BTControler.getInstance().setMusicPause();
-																								EventPostUtils.Post(new FinishBTMusicEvent()); // 同时退出蓝牙音乐界面
+																								EventPostUtils.Post(new FinishBTMusicEvent()); // Exit the Bluetooth music interface at the same time
 																								break;
 																				case Constant.CMD_PLAY_BTMUSIC:
 																								BTControler.getInstance().setMusicPlayOrPause();
@@ -537,7 +528,7 @@ public class BTPhoneService extends Service{
 				public void onDestroy(){
 								super.onDestroy();
 								BTControler.getInstance().unBindFromService(mToken);
-								// 发广播重启该Service
+								// Send a broadcast to restart the service
 								sendBroadcast(new Intent(Constant.Action.ACTION_RESET_BT_PHONE_SERVICE));
 								EventBus.getDefault().unregister(this);
 				}

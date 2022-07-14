@@ -22,7 +22,7 @@ public class GPSStateCmd extends BaseCmd{
 				public final static int TV = 6; // tv
 				public final static int PHONE = 7; // 电话
 				public final static int INTENET = 8; // 互联网
-				public final static int BLUETOOTH_MUSIC = 9; // 蓝牙音乐
+				public final static int BLUETOOTH_MUSIC = 9; // bluetooth music
 				public final static int APP = 10; // 应用程序
 				public final static int SETTING = 11; // 设置
 				public final static int AUX = 12; // 外部输入
@@ -38,7 +38,7 @@ public class GPSStateCmd extends BaseCmd{
 					6：tv
 					7：电话
 					8：互联网
-					9：蓝牙音乐
+					9：bluetooth music
 					10：应用程序
 					11：设置
 					*/

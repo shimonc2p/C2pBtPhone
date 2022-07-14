@@ -18,10 +18,10 @@ public class SwitchIntentType{
 				// 音乐
 				public final static String MUSIC = "com.lingfei.android.music.ui.music/musicplay";
 
-				// 蓝牙音乐
+				// bluetooth music
 				public final static String BT_MUSIC = "com.c2p.c2pbtphone.btphone.ui.btmusic/btmusic";
 
-				// 蓝牙电话
+				// bluetooth phone
 				public final static String BT_PHONE = "com.c2p.c2pbtphone.btphone.ui.bluephone/bluephone";
 
 				// 媒体菜单界面

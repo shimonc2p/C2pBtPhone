@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-	* 蓝牙电话界面Fragment的适配器
+	* bluetooth phone界面Fragment的适配器
 	* Created by heyu on 17/7/6.
 	*/
 public class PhonePagerAdapter extends FragmentPagerAdapter {

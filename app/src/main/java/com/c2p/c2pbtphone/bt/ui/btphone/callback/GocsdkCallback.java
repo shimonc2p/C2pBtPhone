@@ -30,12 +30,12 @@ public class GocsdkCallback extends IGocsdkCallback.Stub{ //服务返回调用
 				public static final int HfpStatus_talking = 6;
 
 				/**
-					* 蓝牙连接
+					* Bluetooth connection
 					*/
 				public static final int BT_ON_LINE = 1000;
 
 				/**
-					* 蓝牙断开
+					*bluetooth disconnected
 					*/
 				public static final int BT_OFF_LINE = 1001;
 
@@ -45,22 +45,22 @@ public class GocsdkCallback extends IGocsdkCallback.Stub{ //服务返回调用
 				public static final int BT_ON_LINE_USE = 1002;
 
 				/**
-					* 蓝牙电话来电
+					* bluetooth phone来电
 					*/
 				public static final int BT_CALL_IN = 1003;
 
 				/**
-					* 蓝牙电话拒接\挂断
+					* bluetooth phone拒接\挂断
 					*/
 				public static final int BT_HANG_UP = 1006;
 
 				/**
-					* 蓝牙电话接听（通话中）
+					* bluetooth phone接听（通话中）
 					*/
 				public static final int BT_TALKING = 1005;
 
 				/**
-					* 蓝牙电话挂断
+					* bluetooth phone挂断
 					*/
 				public static final int BT_CALL_OUT = 1007;
 
@@ -90,7 +90,7 @@ public class GocsdkCallback extends IGocsdkCallback.Stub{ //服务返回调用
 				}
 
 				/**
-					* 来电
+					* incoming call
 					*
 					* @param number
 					* @throws RemoteException
@@ -536,15 +536,15 @@ public class GocsdkCallback extends IGocsdkCallback.Stub{ //服务返回调用
 								}
 				}
 
-				/* 以广播方式同步蓝牙状态给同行者，解决同行者语音和蓝牙电话不能共存的问题
+				/* 以广播方式同步蓝牙状态给同行者，解决同行者语音和bluetooth phone不能共存的问题
 				  蓝牙状态value对应关系如下：
-						1000：蓝牙连接
+						1000：Bluetooth connection
 						1001：蓝牙断开
 						1002：蓝牙空闲且可用（已连接）
-						1003：蓝牙电话来电
-						1004：蓝牙电话拒接
-						1005：蓝牙电话接听（通话中）
-						1006：蓝牙电话挂断 	*/
+						1003：bluetooth phone来电
+						1004：bluetooth phone拒接
+						1005：bluetooth phone接听（通话中）
+						1006：bluetooth phone挂断 	*/
 				private void sendBtPhoneBroadcast(int value){
 								// 保存蓝牙状态
 								SystemProperties.set(Constant.KEY_BT_STATE, String.valueOf(value));

@@ -142,13 +142,13 @@ public class DeviceFragment extends BaseSupportFragment implements DeviceContrac
 
 								String cancelSearch = getResources().getString(R.string.btphone_search_stop);
 								if(!tv_seach_devices.getText().equals(cancelSearch)){
-												BTControler.getInstance().searchNewBTDevice_Start(); // 搜索蓝牙设备
+												BTControler.getInstance().searchNewBTDevice_Start(); // search for bluetooth devices
 												String searching = getResources().getString(R.string.btphone_searching);
 												tv_seach_devices.setText(cancelSearch);
 												tv_tip.setText(searching);
 								}
 								else{
-												BTControler.getInstance().searchNewBTDevice_Stop(); // 停止搜索蓝牙设备
+												BTControler.getInstance().searchNewBTDevice_Stop(); // stop searching for bluetooth devices
 												String startSearch = getResources().getString(R.string.btphone_search_start);
 												tv_seach_devices.setText(startSearch);
 

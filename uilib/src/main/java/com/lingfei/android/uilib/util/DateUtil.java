@@ -776,9 +776,9 @@ public final class DateUtil implements Serializable{
 				/**
 					* 获得当前日期固定间隔天数的日期，如前60天dateAdd(-60)
 					*
-					* @param amount 距今天的间隔日期长度，向前为负，向后为正
-					* @param format 输出日期的格式.
-					* @return java.lang.String 按照格式输出的间隔的日期字符串.
+					* @param amount The length of the interval date from today, negative forward, positive backward
+					* @param format The format of the output date.
+					* @return java.lang.String An interval date string to output in format.
 					*/
 				public static String getFormatCurrentAdd(int amount, String format){
 
@@ -788,7 +788,7 @@ public final class DateUtil implements Serializable{
 				}
 
 				/**
-					* 取得给定格式的昨天的日期输出
+					* Get yesterday's date output in the given format
 					*
 					* @param format 日期输出的格式
 					* @return String 给定格式的日期字符串.
@@ -949,7 +949,7 @@ public final class DateUtil implements Serializable{
 								long minute = (second - hour * 60 * 60) / 60;
 								long sec = (second - hour * 60 * 60) - minute * 60;
 
-								return hour + "小时" + minute + "分钟" + sec + "秒";
+								return hour + "Hour" + minute + "Minute" + sec + "Second";
 
 				}
 
@@ -1295,7 +1295,7 @@ public final class DateUtil implements Serializable{
 								Date edate = null;
 								sdate = getDateObj(startDate, "/"); // 开始日期
 								edate = getDateObj(endDate, "/");// 结束日期
-								// 首先计算出都有那些日期，然后找出星期六星期天的日期
+								// First figure out what dates are there, then find the dates for Saturday and Sunday
 								int sumDays = Math.abs(getDiffDays(startDate, endDate));
 								int dayOfWeek = 0;
 								for(int i = 0; i <= sumDays; i++){
@@ -1340,8 +1340,8 @@ public final class DateUtil implements Serializable{
 					* @return 返回一个字符串数组对象
 					*/
 				public static String[] getArrayDiffDays(String startDate, String endDate){
-								int LEN = 0; //用来计算两天之间总共有多少天
-								//如果结束日期和开始日期相同
+								int LEN = 0; //Used to calculate how many days there are in total between two days
+								//If the end date and start date are the same
 								if(startDate.equals(endDate)){
 												return new String[]{startDate};
 								}
@@ -1406,19 +1406,19 @@ public final class DateUtil implements Serializable{
 												timeStr = DateUtil.convertDate(timestamp, "yyyy-MM-dd");
 								}
 								else if(timeGap > 2 * DAY){// 前天
-												timeStr = "前天";
+												timeStr = "the day before yesterday";
 								}
 								else if(timeGap > DAY){// 昨天
-												timeStr = "昨天";
+												timeStr = "Yesterday";
 								}
 								else if(timeGap > HOUR){// 1小时-24小时
-												timeStr = timeGap / HOUR + "小时前";
+												timeStr = timeGap / HOUR + "an hour ago";
 								}
 								else if(timeGap > MINUTE){// 1分钟-59分钟
-												timeStr = timeGap / MINUTE + "分钟前";
+												timeStr = timeGap / MINUTE + "minutes ago";
 								}
-								else{// 1秒钟-59秒钟
-												timeStr = "刚刚";
+								else{// 1 second - 59 seconds
+												timeStr = "just a moment ago";
 								}
 								return timeStr;
 				}
@@ -1436,7 +1436,7 @@ public final class DateUtil implements Serializable{
 								String timeStr = null;
 								long hours = timeGap / HOUR; // 多少小时
 								long minute = timeGap % HOUR; // 多少分钟
-								timeStr = hours + "小时" + minute / MINUTE + "分钟";
+								timeStr = hours + "Hour" + minute / MINUTE + "Minute";
 
 								return timeStr;
 				}

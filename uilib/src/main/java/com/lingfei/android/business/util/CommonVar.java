@@ -11,7 +11,7 @@ public class CommonVar{
 				public static String reversetrack_status_key = "reversetrack";//倒车轨迹
 
 				public static String brakedetection_status_key = "brakedetection";//刹车检测
-				public static String bluetoothmusic_status_key = "bluetoothmusic";//蓝牙音乐
+				public static String bluetoothmusic_status_key = "bluetoothmusic";//bluetooth music
 				public static String automap_status_key = "automap";//自动开启地图
 				public static String hdmi_status_key = "hdmi";//hdmi  true表示设置成导航，false设置成原车
 				public static String camera_status_key = "camera";//

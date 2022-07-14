@@ -64,7 +64,7 @@ import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
 
 /**
- * 蓝牙电话
+ * bluetooth phone
  * Created by heyu on 2017/6/15.
  */
 public class BTPhoneMainActivity extends BaseSupportActivity implements BTPhoneMainContract.View,
@@ -75,7 +75,7 @@ public class BTPhoneMainActivity extends BaseSupportActivity implements BTPhoneM
     public final static int FRAGMENT_CONTACT = 1;
     public final static int FRAGMENT_DEVICE = 2;
 
-    private int mCurrentFragment = FRAGMENT_DAIL; // 记录当前的Fragment
+    private int mCurrentFragment = FRAGMENT_DAIL; // record the current fragment
     private String mCallType = "";
 
     private final static int ANIMATOR_TIME = 500;
